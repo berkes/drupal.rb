@@ -4,8 +4,8 @@
  */
 function [module]_form_alter(&$form, $form_state, $form_id) {
   switch($form_id) {
-	  case '':
-	    // @todo: do something
-	    break;
+    case '':
+      // @todo: do something
+      break;
   }
 }
