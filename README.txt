@@ -1,6 +1,6 @@
 = drupal
 
-http://vision-media.ca/resources/ruby/drupal-module-builder-gem
+http://berkes.github.com/drupal.rb/
 
 == DESCRIPTION:
 
@@ -58,9 +58,15 @@ to quickly generate and manage Drupal modules.
 
 == AUTHOR:
 
-TJ Holowaychuk 
-tj@vision-media.ca
-http://vision-media.ca
+Original:
+  TJ Holowaychuk 
+  tj@vision-media.ca
+  http://vision-media.ca
+
+Current Maintainer:
+  Bèr Kessels
+  ber@webschuur.com 
+  http://webschuur.com
 
 == LICENSE:
 

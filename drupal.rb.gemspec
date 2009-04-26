@@ -1,14 +1,14 @@
 Gem::Specification.new do |s|
-  s.name     = "drupal"
+  s.name     = "drupal.rb"
   s.version  = "0.0.6"
   s.date     = "2008-10-16"
   s.summary  = "Drupal development kit"
-  s.email    = "tj@vision-media.ca"
-  s.homepage = "http://vision-media.ca/resources/drupal/drupal-module-builder-gem"
+  s.email    = "ber@webschuur.com"
+  s.homepage = "http://berkes.github.com/drupal.rb/"
   s.description = "Drupal is an open source Ruby development tool allowing developers to quickly generate and manage Drupal modules."
   s.has_rdoc = true
   s.require_path = "lib"
-  s.authors  = ["tj@vision-media.ca"]
+  s.authors  = ["tj@vision-media.ca", "ber@webschuur.com"]
   s.files    = ["History.txt", 
 		"Manifest.txt", 
 		"README.txt", 
