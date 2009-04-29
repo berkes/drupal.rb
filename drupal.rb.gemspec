@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
 		"Manifest.txt", 
 		"README.txt", 
 		"Rakefile", 
-		"drupal.gemspec", 
+		"drupal.rb.gemspec", 
 		"lib/drupal.rb", 
 		"lib/drupal/create_module.rb", 
 		"lib/drupal/todo_list.rb", 
