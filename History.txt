@@ -1,3 +1,9 @@
+
+=== 0.0.7 / 2009-05-02
+
+* Cleanup and rename to drupal.rb
+* Implemented ability to override global templates in a ~/.drupal.rb directory.
+
 === 0.0.6 / 2008-10-16
 
 * 1 Minor Feature:

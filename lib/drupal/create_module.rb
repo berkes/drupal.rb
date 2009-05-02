@@ -160,7 +160,7 @@ class Drupal
       # TODO: is \n included with STDIN?
       _template = template
       filepath = "#{@dir}/#{@module}/#{filepath}"
-      template = File.dirname(__FILE__) + "/templates/#{template}"
+      template = get_template_location << template
       puts "... Adding template '#{_template}' to '#{filepath}'"
       contents = File.read(template)
       tokens.each_pair do |token, value|
@@ -196,7 +196,18 @@ class Drupal
     
     # Get array of templates of a certain type.
     def get_templates(type)
-      Dir[File.dirname(__FILE__) + '/templates/' << type << '/*']
+      Dir[get_template_location << type << '/*']
+    end
+
+
+    private
+    def get_template_location
+      location = File.expand_path '~/.drupal.rb/templates/'
+      unless File.directory? location
+        location = File.dirname(__FILE__) + '/templates/'
+      end
+      return location
     end
   end
 end
+

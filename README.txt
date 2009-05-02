@@ -42,9 +42,20 @@ to quickly generate and manage Drupal modules.
 
   View total todo items only.
      drupal todo list total ./sites/all/modules
+
+== LOCAL TEMPLATES
+
+  Create .drupal.rb/templates/ directories in your home-directory and put your
+  own templates there. Drupal.rb will pick these, instead of the global ones.
+
+  e.g. $ mkdir ~/.drupal.rb/
+       $ cp -r /path/to/gems/berkes-drupal.rb-0.0.7/var/lib/drupal/templates/ \
+         ~/.drupal.rb/templates/
 	
 == TODO:
 
+  * Add defaults.yml-support. When .drupal.rb/defaults.yml exists, use these
+    instead of asking them everytime.
   * Remove ':' from todo list items
   * Add formatted help option
   * Support versions for installer
