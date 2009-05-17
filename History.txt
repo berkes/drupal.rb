@@ -1,10 +1,11 @@
 === 0.0.x / 2009-05-16
 
-* 1 Internal rewrite, 1 new feature
+* 1 Internal rewrite, 1 new feature, 1 bugfix
 
   * Rewrote install system by parsing the drupal release XML rather then scraping HTML.
-  * Added defaults.yml config option. When this file is present, we parse the contents and
+  * Added defaults.yml config option. When this file is present, we parse the contents and 
     present them as defaults in interactive mode. Quicker module-building!
+  * If hook "install" was chose, the .install file was not created. Fixed.
 
 === 0.0.7 / 2009-05-02
 

@@ -120,7 +120,7 @@ class Drupal
 
     # Create .install file.
     def create_module_install_file
-      if @hooks.include?('schema') || @hooks.include?('schema')
+      if @hooks.include?('schema') || @hooks.include?('install')
         create_file("#{@module}.install", "<?php\n")
         append_template("#{@module}.install", 'comments/file', @tokens)
         @hooks.each do |hook|
