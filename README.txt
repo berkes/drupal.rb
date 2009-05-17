@@ -51,6 +51,11 @@ to quickly generate and manage Drupal modules.
   e.g. $ mkdir ~/.drupal.rb/
        $ cp -r /path/to/gems/berkes-drupal.rb-0.0.7/var/lib/drupal/templates/ \
          ~/.drupal.rb/templates/
+         
+== DEFAULTS
+  Create a file in ~/.drupal.rb/ named defaults.yml. The variables in there will
+  be used as defaults on the prompt when creating a module.
+  Alternatively you can copy the example from the doc dir in the package. 
 	
 == TODO:
 

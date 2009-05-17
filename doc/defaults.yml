@@ -1,0 +1,14 @@
+# Defaults for module creation with drupal.rb 
+# Copy this file to ~/.drupal.rb/defaults.yml to use the defaults.
+
+---
+- author: Bèr Kessels
+- link: http://webschuur.com
+- email: ber@webschuur.com
+- module_name: ''
+- module_description: ''
+- module_dependencies: ''
+   # Hooks
+   # Files
+   # Dirs
+
