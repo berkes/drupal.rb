@@ -8,7 +8,8 @@
 # 
 #   create module <module_name> [dir]      Generates a module skeleton from an interactive wizard. Current directory unless [dir] is specified.
 #   todo list [total]                      Displays list of todo items or a total.   
-#   install <core | project ...> [dir]  	 Install Drupal project(s) to [dir] or the current directory.
+#   install <core | project> [dir] [5.x|6.x|7.x]  	 
+#                                          Install a Drupal project or core itself to [dir] (defaults to curent dir) for version (defaults to 6.x)
 #
 # == OPTIONS:
 # 
@@ -37,6 +38,9 @@
 #  
 #   Install a module when in the 'modules directory
 #     drupal install devel
+#
+#   Install a 5.x module when in the 'modules directory
+#     drupal install devel . 5.x
 #
 #   Install several modules to the modules folder
 #     drupal install devel,pathauto,err,ac ./sites/all/modules
@@ -105,7 +109,8 @@ class Drupal
  
     create module <module_name> [dir]  Generates a module skeleton from an interactive wizard. Current directory unless [dir] is specified.
     todo list [total]                  Displays list of todo items or a total.   
-    install <core | project> [dir]  	 Install a Drupal project or core itself to [dir]    
+    install <core | project> [dir] [5.x|6.x|7.x]
+                                       Install a Drupal project or core itself to [dir] (defaults to curent dir) for version (defaults to 6.x)
     
   EXAMPLES:
   
@@ -126,7 +131,10 @@ class Drupal
       
     Install drupal core to the current directory.
       drupal install core
-      
+
+    Install a 5.x module when in the 'modules directory
+      drupal install devel . 5.x
+
     Install a module to the modules folder in my new installation (from drupal root)
       drupal install devel ./sites/all/modules
       

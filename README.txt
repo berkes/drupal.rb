@@ -19,7 +19,8 @@ to quickly generate and manage Drupal modules.
 
 	create module <module_name>   		Generates a module skeleton from an interactive wizard.
 	todo list [total]    				  		Displays list of todo items or a total.
-	install <core | project> [dir]  	Install a Drupal project or core itself to [dir]
+	install <core | project> [dir] [5.x|6.x|7.x]
+                                       Install a Drupal project or core itself to [dir] (defaults to curent dir) for version (defaults to 6.x)
 
 == OPTIONS:
 
@@ -43,6 +44,18 @@ to quickly generate and manage Drupal modules.
   View total todo items only.
      drupal todo list total ./sites/all/modules
 
+  Install drupal core to the current directory.
+     drupal install core
+
+  Install a 5.x module when in the 'modules directory
+     drupal install devel . 5.x
+
+  Install a module to the modules folder in my new installation (from drupal root)
+     drupal install devel ./sites/all/modules
+    
+  Install a module when in the 'modules directory
+     drupal install devel
+
 == LOCAL TEMPLATES
 
   Create .drupal.rb/templates/ directories in your home-directory and put your
@@ -58,9 +71,8 @@ to quickly generate and manage Drupal modules.
   Alternatively you can copy the example from the doc dir in the package. 
 	
 == TODO:
-
-  * Add defaults.yml-support. When .drupal.rb/defaults.yml exists, use these
-    instead of asking them everytime.
+  * Move helptext into one include instead of having it on 4 places (DRY!)
+  * Add Drupal version support to defaults.yml.
   * Remove ':' from todo list items
   * Add formatted help option
   * Support versions for installer

@@ -1,4 +1,3 @@
-
 require 'zlib'
 require 'net/http'
 require 'rexml/document'
@@ -10,6 +9,7 @@ class Drupal
     def run(arguments)
       @project = arguments[0]
       @dest = arguments[1] || '.'
+      @version = arguments[2] || '6.x'
       abort "Destination #{@dest} is not a directory." unless File.directory?(@dest)
       abort 'Project name required (core | <project>).' if arguments.empty?
       install_projects
@@ -53,7 +53,7 @@ class Drupal
     # Install project.
     # @TODO move all the updates.drupal.org xml parsing into a separate Class
     def install_project
-      xmldoc = get_xml @project
+      xmldoc = get_xml(@project, @version)
       release = get_release(xmldoc, 'latest')
       @tarpath = get_tarball(release)
 
@@ -71,11 +71,11 @@ class Drupal
       debug 'Installation complete'
     end
 
-    def get_xml project
+    def get_xml project, version='6.x'
       debug "Locating #{project} page"
       # Locate tarball from project page
       begin
-        response = Net::HTTP.get_response(URI.parse("http://updates.drupal.org/release-history/#{project}/6.x"))
+        response = Net::HTTP.get_response(URI.parse("http://updates.drupal.org/release-history/#{project}/#{version}"))
         # TODO: unhardcode the dependency on Drupal 6, make this an environment or static var.
         # TODO: check 404, 403 etc.
         xmldoc = Document.new response.body

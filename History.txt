@@ -1,6 +1,7 @@
-=== 0.0.x / 2009-05-16
+=== 0.0.8 / 2009-08-06
 
-* 1 Internal rewrite, 1 new feature, 1 bugfix
+* 1 Internal rewrite, 2 new features, 1 bugfix
+  * Added commandline option to allow selection of Drupal version for installation.
 
   * Rewrote install system by parsing the drupal release XML rather then scraping HTML.
   * Added defaults.yml config option. When this file is present, we parse the contents and 
