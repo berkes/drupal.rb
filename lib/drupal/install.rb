@@ -84,7 +84,7 @@ class Drupal
           raise message
         end
       rescue
-        debug "Could not fetch #{project}. Error: #{message}"
+        abort "Could not fetch #{project}. Error: #{message}"
       end
 
       return xmldoc
