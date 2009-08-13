@@ -43,7 +43,6 @@ Gem::Specification.new do |s|
 		"lib/drupal/templates/5.x/hooks/init", 
 		"lib/drupal/templates/5.x/hooks/menu", 
 		"lib/drupal/templates/5.x/hooks/perm",
-		"lib/drupal/templates/5.x/hooks/theme", 
 		"lib/drupal/templates/5.x/txt/changelog", 
 		"lib/drupal/templates/5.x/txt/readme",
 		"lib/drupal/templates/5.x/base/info",
