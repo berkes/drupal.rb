@@ -6,12 +6,12 @@ function [module]_menu() {
   $items = array();
 
   $items['admin/settings/[module]'] = array(
-      'title' => '[module]',
-      'page callback' => 'drupal_get_form',
-      'page arguments' => array('[module]_settings'),
-      'access arguments' => array('administer [module]'),
-      'file' => '[module].admin.inc',
-    );
+    'title' => '[module]',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('[module]_settings'),
+    'access arguments' => array('administer [module]'),
+    'file' => '[module].admin.inc',
+  );
 
   return $items;
 }
