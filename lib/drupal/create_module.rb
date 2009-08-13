@@ -27,7 +27,8 @@ class Drupal
       # TODO create self.log() with padding to even output
       defaults = get_defaults
 
-      # Info
+      # TODO make each ask have a commandline-option equivalent.
+      @version = self.ask('What drupal version to scaffold for?:', defaults[:version])
       @author = self.ask('What is your name?:', defaults[:author])
       @link = self.ask('What is the URI to your companies website?:', defaults[:link])
       @email = self.ask('What is your email?:', defaults[:email])
@@ -131,14 +132,26 @@ class Drupal
 
     # Create info file.
     def create_module_info_file
-      contents = '; $Id$'
-      contents << "\nname = #{@module_name}"
-      contents << "\ndescription = #{@module_description}"
-      contents << "\ncore = 6.x"
-      @module_dependencies.each do |dependency|
-        contents << "\ndependencies[] = #{dependency}"
+      tokens = {
+        'module_name' => @module_name,
+        'module_description' => @module_description,
+        'version' => @version,
+      }
+
+      if !@module_dependencies.nil?
+        #In 6.x each dep has a new line. In 5.x they are on a single line.
+        if (@version == '6.x')
+          @module_dependencies.each do |dependency|
+           tokens['dependencies_chunk'] = "\ndependencies[] = #{dependency}"
+          end       
+        elsif (@version == '5.x')
+          tokens['dependencies_chunk'] = "dependencies = " + @module_dependencies.join(',')
+        end
       end
-      create_file("#{@module}.info", contents)
+      
+      filepath = "#{@module}.info"
+      create_file(filepath)
+      append_template(filepath, "base/info", tokens)
     end
 
     # Create a new directory.
@@ -213,10 +226,10 @@ class Drupal
 
     private
     def get_template_location
-      location = File.expand_path '~/.drupal.rb/templates'
+      location = File.expand_path "~/.drupal.rb/templates/#{@version}"
 
       unless File.directory? location
-        location = File.dirname(__FILE__) + '/templates'
+        location = File.dirname(__FILE__) + "/templates/#{@version}"
       end
 
       return location + '/'

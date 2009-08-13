@@ -71,14 +71,16 @@ to quickly generate and manage Drupal modules.
   Alternatively you can copy the example from the doc dir in the package. 
 	
 == TODO:
+  * Move module, install to base too.
+  * Add support for database scheme upgrades, similar to rake db: commands. Should add hook_update to .install.
   * Move helptext into one include instead of having it on 4 places (DRY!)
-  * Add Drupal version support to defaults.yml.
+  * Improve Drupal version support to defaults.yml.
   * Remove ':' from todo list items
-  * Add formatted help option
   * Support versions for installer
   * Support version prompt for project installation
   * Support installing a list from file(s) so that devs may have lists of core modules they use
   * Add hook dependencies
+  * Add an option to write and/or change defaults.yml from commandline
   * Add installer for jQuery plugins?
   * Add graceful error handling
   * Add / refactor tests, using rspec

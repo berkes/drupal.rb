@@ -1,0 +1,24 @@
+
+/**
+ * Implementation of hook_menu().
+ */
+function [module]_menu($may_cache) {
+  $items = array();
+
+  if ($may_cache) {
+    $items[] = array(
+      'path' => 'admin/settings/[module]',
+      'title' => t('[module]'),
+      'callback' => '[module]_settings_page',
+      'access' => user_access('access administration pages'),
+    );
+    $items[] = array(
+      'path' => '',
+      'title' => t(''),
+      'callback' => '',
+      'access' => user_access(''),
+      'type' => MENU_SUGGESTED_ITEM,
+    );
+  }
+  return $items;
+}
