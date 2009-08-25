@@ -56,7 +56,7 @@ class Drupal
   
   MAJOR = 0
   MINOR = 0
-  TINY = 6
+  TINY = 9
   VERSION = [MAJOR, MINOR, TINY].join('.')
   
   # Run the drupal development tool.
