@@ -72,7 +72,7 @@ class Drupal
     end
 
     def get_xml project, version='6.x'
-      debug "Locating #{project} page"
+      debug "Locating #{project} page for version #{version}"
       # Locate tarball from project page
       begin
         response = Net::HTTP.get_response(URI.parse("http://updates.drupal.org/release-history/#{project}/#{version}"))
