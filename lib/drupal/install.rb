@@ -1,6 +1,8 @@
-require 'zlib'
+require 'rubygems'
 require 'net/http'
 require 'rexml/document'
+require 'zlib'
+require 'archive/tar/minitar'
 
 class Drupal
   class Install
@@ -58,16 +60,14 @@ class Drupal
       @tarpath = get_tarball(release)
 
       # Extract tarball
-      @pwd = Dir.getwd
-      Dir.chdir File.dirname(@tarpath) and debug "Changed cwd to #{File.dirname(@tarpath)}" unless @dest == '.'
-      Kernel.system "tar -xf #{@tarpath}" rescue abort "Failed to extract #{@tarpath}"
-      Dir.chdir @pwd and debug "Reverted cwd back to #{@pwd}" unless @dest == '.'
-
+      tgz = Zlib::GzipReader.new(File.open(@tarpath, 'rb'))
+      Archive::Tar::Minitar.unpack(tgz, @dest) rescue abort "Failed to extract #{@tarpath} to #{@dest}"
+      
       # Remove tarball
-      Kernel.system "rm #{@tarpath}" rescue abort "Failed to remove #{@tarpath}"
+      File.delete(@tarpath) rescue abort "Failed to remove #{@tarpath}"
 
       # Installation complete
-      debug "Project installed to #{File.dirname(@tarpath)}" unless @dest == '.'
+      debug "Project #{@project} installed to #{File.dirname(@tarpath)}" unless @dest == '.'
       debug 'Installation complete'
     end
 
