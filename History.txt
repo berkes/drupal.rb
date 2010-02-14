@@ -1,0 +1,54 @@
+=== 0.0.9 / 2010-02-14
+* Rewrite installer interface to act like APT.
+* Rewrote gem with jeweler.
+
+=== 0.0.8 / 2009-08-06
+
+* 1 Internal rewrite, 2 new features, 1 bugfix
+  * Added commandline option to allow selection of Drupal version for installation.
+
+  * Rewrote install system by parsing the drupal release XML rather then scraping HTML.
+  * Added defaults.yml config option. When this file is present, we parse the contents and 
+    present them as defaults in interactive mode. Quicker module-building!
+  * If hook "install" was chose, the .install file was not created. Fixed.
+
+=== 0.0.7 / 2009-05-02
+
+* Cleanup and rename to drupal.rb
+* Implemented ability to override global templates in a ~/.drupal.rb directory.
+
+=== 0.0.6 / 2008-10-16
+
+* 1 Minor Feature:
+
+  * Added hook_install() support
+
+=== 0.0.5 / 2008-10-06
+
+* 1 Minor Fix:
+
+  * Todo list was not parsing items starting with '@' in @todo
+
+=== 0.0.4 / 2008-10-03
+
+* 1 Major Feature:
+
+  * Installer allows lists of projects 'err,ac,devel'
+
+=== 0.0.3 / 2008-10-03
+
+* 1 Major Feature:
+
+  * Installer for Drupal projects
+
+=== 0.0.2 / 2008-10-02
+
+* 2 Bug Fixes:
+
+  * Executable
+  * Fixed template filepath errors
+
+=== 0.0.1 / 2008-09-27
+
+	* Initial release
+
