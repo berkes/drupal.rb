@@ -1,6 +1,0 @@
-; $Id$'
-
-name = [module_name]
-description = [module_description]
-core = [version]
-[dependencies_chunk]
