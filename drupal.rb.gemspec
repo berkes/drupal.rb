@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name     = "drupal.rb"
-  s.version  = "0.0.10"
-  s.date     = "2008-10-16"
+  s.version  = "0.0.11"
+  s.date     = "201-02-14"
   s.summary  = "Drupal development kit"
   s.email    = "ber@webschuur.com"
   s.homepage = "http://berkes.github.com/drupal.rb/"
@@ -10,9 +10,11 @@ Gem::Specification.new do |s|
   s.require_path = "lib"
   s.authors  = ["tj@vision-media.ca", "ber@webschuur.com"]
   s.add_dependency("archive-tar-minitar", ">0.5.0")
+  s.add_dependency("active_support", ">0.0.0")
   s.requirements = [
     "A POSIX compliant environment (Mac, Unix, Linux, and for Windows Cygwin)",
-    "Minitar Gem version 0.5.0 or greater. http://raa.ruby-lang.org/project/minitar"  ]
+    "Minitar Gem version 0.5.0 or greater. http://raa.ruby-lang.org/project/minitar",
+    "Pluralize, as found in active_support, for database scaffolding."  ]
   s.files    = ["History.txt", 
 		"Manifest.txt", 
 		"README.txt", 

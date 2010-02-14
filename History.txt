@@ -1,3 +1,6 @@
+=== 0.0.11 / 2010-02-14 
+* Database scaffolding initial. Adds CRUD database includefile and schema in install.
+
 === 0.0.8 / 2009-08-06
 
 * 1 Internal rewrite, 2 new features, 1 bugfix

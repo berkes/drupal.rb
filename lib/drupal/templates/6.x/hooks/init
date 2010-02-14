@@ -3,5 +3,6 @@
  * Implementation of hook_init().
  */
 function [module]_init() {
-
+  $base = drupal_get_path('module', '[module]');
+  require_once($base .'/[module]_db.inc'); //@TODO: remove if you have no database-handling.
 }

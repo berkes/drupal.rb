@@ -1,4 +1,5 @@
 require 'yaml'
+require 'active_support'
 
 class Drupal
   class Create_Module
@@ -33,6 +34,7 @@ class Drupal
       @link = self.ask('What is the URI to your companies website?:', defaults[:link])
       @email = self.ask('What is your email?:', defaults[:email])
       @module_name = self.ask('Enter a human readable name for your module:', defaults[:module_name])
+      @table = self.ask('Database table name for your module. Without the modulename. A table name "pirates" on the module "cool_people" we would give us a table "cool_people_pirates" Leave empty for no database-scaffolding.')
       @module_description = self.ask('Enter a short description of your module:', defaults[:module_description])
       @module_dependencies = self.ask('Enter a list of dependencies for your module:', defaults[:module_dependencies], true)
       # Hooks
@@ -53,6 +55,12 @@ class Drupal
 
     # Create global tokens.
     def create_tokens
+      if not @table.nil?
+        @record = @table.singularize
+      else
+        @record = ''
+      end
+      
       @tokens = {
           :module => @module,
           :link => @link,
@@ -61,6 +69,8 @@ class Drupal
           :module_name => @module_name,
           :module_description => @module_description,
           :module_dependencies => @module_dependencies,
+          :table => @table,
+          :record => @record,
         }
     end
 
@@ -72,8 +82,6 @@ class Drupal
           'boot',
           'init',
           'menu',
-          'install',
-          'schema',
           'theme',
           'form_alter',
           'block',
@@ -88,7 +96,7 @@ class Drupal
       self.create_module_dirs
       self.create_module_files
       self.create_module_file
-      self.create_module_install_file
+      self.create_module_database_files
       self.create_module_info_file
       puts 'Module created :)'
     end
@@ -114,19 +122,25 @@ class Drupal
       append_template("#{@module}.module", 'comments/large', {'title' => 'Hook Implementations'})
       for hook in @hook_weights
         if @hooks.include?(hook)
-          append_template("#{@module}.module", "hooks/#{hook}", @tokens) unless hook.match /^install|schema/
+          append_template("#{@module}.module", "hooks/#{hook}", @tokens)
         end
       end
     end
 
-    # Create .install file.
-    def create_module_install_file
-      if @hooks.include?('schema') || @hooks.include?('install')
+    # Create .install file, database includes and schema..
+    def create_module_database_files
+      if not @table.empty?
         create_file("#{@module}.install", "<?php\n")
         append_template("#{@module}.install", 'comments/file', @tokens)
-        @hooks.each do |hook|
-          append_template("#{@module}.install", "hooks/#{hook}", @tokens) if hook.match /^install|schema/
+        ['install', 'schema'].each do |hook|
+          append_template("#{@module}.install", "incs/#{hook}", @tokens)
         end
+        
+        create_file("#{@module}_db.inc", "<?php\n")
+        append_template("#{@module}_db.inc", 'comments/file_db', @tokens)
+        append_template("#{@module}_db.inc", "incs/module_db", @tokens)
+        
+        append_template("#{@module}.module", "hooks/init", @tokens) unless @hooks.include('init')
       end
     end
 

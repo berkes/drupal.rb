@@ -5,32 +5,31 @@
 function [module]_schema() {
   $schema = array();
 
-  $schema['[module]'] = array(
-    'description' => t('Table description here.'),
+  $schema['[table]'] = array(
+    'description' => t('Table for [table]'),
     'fields' => array(
-      'id' => array(
+      '[record]_id' => array(
         'description' => t('Primary identifier.'),
         'type' => 'serial',
         'unsigned' => TRUE,
         'not null' => TRUE),
-      'status' => array(
-         'description' => t('Status. 0 = unpublished, 1 = published.'),
+      /*@TODO: more columns here */
+      'created_at' => array(
+        'description' => t('The Unix timestamp when the row was created.'),
         'type' => 'int',
-        'size' => 'tiny',
-        'not null' => FALSE,
+        'not null' => TRUE,
         'default' => 0),
-      'created' => array(
+        ),
+      'updated_at' => array(
         'description' => t('The Unix timestamp when the row was created.'),
         'type' => 'int',
         'not null' => TRUE,
         'default' => 0),
         ),
       'indexes' => array(
-        'status' => array('status'),
-        'created' => array('created'),
-        'id_status' => array('id', 'status'),
-        ),
-      'primary key' => array('id'),
+        /* @TODO: records that must be indeed here */
+       ),
+      'primary key' => array('[record]_id'),
       );
 
   return $schema;

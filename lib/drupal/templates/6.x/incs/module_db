@@ -1,0 +1,90 @@
+
+/**
+ * Create [record]
+ * @param $[record]
+ *   array, called by reference, array with the [record] will be updated with
+ *   $[record]['[record]_id'].
+ * @return 
+ *  BOOL: TRUE on successfull save, FALSE on error.
+ */
+function [module]_[record]_create(&$[record]) {
+  $status = FALSE;
+  $now = time();
+  $[record]['[record]_id'] = db_next_id('[module]_[record]');
+  
+	$inserted = db_query("
+	  INSERT INTO {[table]} 
+	    ([record]_id @TODO: insert columns here, created_at, updated_at) 
+	  VALUES
+		  (@TODO: insert tokens )",
+		$record['[record]_id'], /*@TODO: insert other records here */ $now, $now);
+
+	if ($inserted) {
+		$status = TRUE;
+	}
+
+	return $status;
+}
+
+/**
+ * Load [record]
+ * @param $[record]_id 
+ *   integer The ID of the [record] to be loaded.
+ * @return array a record as an aray.
+ */
+function [module]_[record]_read($[record]_id) {
+  static $[table];
+  if (empty($[table][$[record]_id]) || !is_array($[table][$[record]_id])) {
+    $result = db_query("
+      SELECT 
+        *
+      FROM {[module]_[table]} 
+      WHERE 
+        [record]_id = %d
+      LIMIT 1",
+      $[record]_id, $payment_status);
+	  $[table][$[record]_id] = db_fetch_array($result);
+  }
+
+	return $[table][$[record]_id];
+}
+
+/**
+ * Update [record] status
+ * @param $[record]
+ *   array, called by reference, array with the [record] will be updated with
+ *   $[record]['updated_at']. Needs at least a $[record]['[record]_id'] to match 
+ *   the update against.
+ * @return 
+ *  BOOL: TRUE on successfull save, FALSE on error.
+ */
+function [module]_[record]_update(&$[record]) {
+  $status = FALSE;
+  $now = time();
+  
+  $updated = db_query("
+    UPDATE {[module]_[table]} SET 
+      @TODO: columns here, updated_at = %d 
+    WHERE 
+      [record]_id = %d", 
+    /*@TODO: other records here */, $now, $[record]['[record]_id']);
+  
+  if ($updated) {
+		$status = TRUE;
+	}
+
+  return $status;
+}
+
+/**
+ * Delete [record]
+ */
+function [module]_[record]_delete($[record]_id) {
+  $status = FALSE;
+  
+	$deleted = db_query("DELETE FROM {[module]_[table]} WHERE [pirate]_id = %d", $[record]_id);
+	if {
+		$status = TRUE;
+	}
+}
+
