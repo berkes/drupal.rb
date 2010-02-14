@@ -10,8 +10,10 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["B\303\250r Kessels"]
   s.date = %q{2010-02-14}
+  s.default_executable = %q{drupal}
   s.description = %q{Drupal.rb is an open source Ruby development tool allowing developers to quickly generate and manage Drupal modules}
   s.email = %q{ber@webschuur.com}
+  s.executables = ["drupal"]
   s.extra_rdoc_files = [
     "LICENSE",
      "README.rdoc"
@@ -19,11 +21,16 @@ Gem::Specification.new do |s|
   s.files = [
     ".document",
      ".gitignore",
+     "History.txt",
      "LICENSE",
      "README.rdoc",
      "Rakefile",
      "VERSION",
+     "bin/drupal",
+     "cache/projects.xml",
+     "drupal.rb.gemspec",
      "lib/drupal.rb",
+     "lib/drupal/update.rb",
      "test/helper.rb",
      "test/test_drupal.rb"
   ]
