@@ -7,7 +7,8 @@ class Drupal
       updates_location = "http://updates.drupal.org/release-history/project-list/all"
         #@TODO: make this into a resources list and foreach trough them, 
         #       so you can provide your own repository. Like sources.list in apt.
-      cache_path = File.join(File.dirname(__FILE__), '..', '..', 'cache')
+        
+      cache_path = File.join(File.dirname(__FILE__), '..', '..', 'cache') #TODO: we want a cache class, not such ugly hardcoded stuff 
       cache_file = File.join(cache_path, 'projects.xml')
 
       begin
