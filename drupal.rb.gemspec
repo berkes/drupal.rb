@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name     = "drupal.rb"
   s.version  = "0.0.12"
-  s.date     = "201-02-14"
+  s.date     = "2010-02-14"
   s.summary  = "Drupal development kit"
   s.email    = "ber@webschuur.com"
   s.homepage = "http://berkes.github.com/drupal.rb/"
