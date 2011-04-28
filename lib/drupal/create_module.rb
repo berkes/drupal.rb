@@ -1,5 +1,4 @@
 require 'yaml'
-require 'active_support'
 
 class Drupal
   class Create_Module
