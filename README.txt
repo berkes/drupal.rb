@@ -1,5 +1,7 @@
 = drupal.rb
 
+[![](http://stillmaintained.com/user/project.png)](http://stillmaintained.com/user/project)
+
 http://berkes.github.com/drupal.rb/
 
 == DESCRIPTION:
