@@ -1,35 +1,35 @@
-= drupal.rb
+# drupal.rb
 
 [![](http://stillmaintained.com/user/project.png)](http://stillmaintained.com/user/project)
 
 http://berkes.github.com/drupal.rb/
 
-== DESCRIPTION:
+## DESCRIPTION:
 
 Drupal is an open source Ruby development tool allowing developers 
 to quickly generate and manage Drupal modules.
 
-== SYNOPSIS:
+## SYNOPSIS:
 
 	drupal [options] [arguments]
 
-== REQUIREMENTS:
+## REQUIREMENTS:
 
 	none
 
-== ARGUMENTS:
+## ARGUMENTS:
 
 	create module <module_name>   		Generates a module skeleton from an interactive wizard.
 	todo list [total]    				  		Displays list of todo items or a total.
 	install <core | project> [dir] [5.x|6.x|7.x]
                                        Install a Drupal project or core itself to [dir] (defaults to curent dir) for version (defaults to 6.x)
 
-== OPTIONS:
+## OPTIONS:
 
  	-h, --help       Display this help information.
  	-V, --version    Display version of the Drupal development tool.
 
-== EXAMPLES:
+## EXAMPLES:
 
   Create a new module in the current directory.
     drupal create module my_module
@@ -58,7 +58,7 @@ to quickly generate and manage Drupal modules.
   Install a module when in the 'modules directory
      drupal install devel
 
-== LOCAL TEMPLATES
+## LOCAL TEMPLATES
 
   Create .drupal.rb/templates/ directories in your home-directory and put your
   own templates there. Drupal.rb will pick these, instead of the global ones.
@@ -67,12 +67,12 @@ to quickly generate and manage Drupal modules.
        $ cp -r /path/to/gems/berkes-drupal.rb-0.0.7/var/lib/drupal/templates/ \
          ~/.drupal.rb/templates/
          
-== DEFAULTS
+## DEFAULTS
   Create a file in ~/.drupal.rb/ named defaults.yml. The variables in there will
   be used as defaults on the prompt when creating a module.
   Alternatively you can copy the example from the doc dir in the package. 
 
-== AUTHOR:
+## AUTHOR:
 
 Original:
   TJ Holowaychuk 
@@ -84,7 +84,7 @@ Current Maintainer:
   ber@webschuur.com 
   http://webschuur.com
 
-== LICENSE:
+## LICENSE:
 
 (The MIT License)
 
