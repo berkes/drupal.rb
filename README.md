@@ -1,6 +1,6 @@
 # drupal.rb
 
-[![](http://stillmaintained.com/user/project.png)](http://stillmaintained.com/user/project)
+[![](http://stillmaintained.com/berkes/drupal.rb.png)](http://stillmaintained.com/berkes/drupal.rb)
 
 http://berkes.github.com/drupal.rb/
 
